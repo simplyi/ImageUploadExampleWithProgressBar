@@ -1,25 +1,80 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MyImageUploadExampleWithProgressView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="brK-em-v2z">
+                                <rect key="frame" x="0.0" y="28" width="320" height="160"/>
+                                <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hp-8H-cmp">
+                                <rect key="frame" x="102" y="209" width="117" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Upload">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RV7-Ro-5XL"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SkQ-QJ-Sw2">
+                                <rect key="frame" x="16" y="268" width="288" height="2"/>
+                                <color key="progressTintColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="trackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5TQ-cG-YZB">
+                                <rect key="frame" x="139" y="284" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3hT-eK-De5"/>
+                                    <constraint firstAttribute="width" constant="42" id="XdV-Y6-DxW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SkQ-QJ-Sw2" firstAttribute="top" secondItem="0hp-8H-cmp" secondAttribute="bottom" constant="29" id="BcS-Ag-G6t"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="5TQ-cG-YZB" secondAttribute="bottom" constant="263" id="C8f-aQ-TiZ"/>
+                            <constraint firstItem="0hp-8H-cmp" firstAttribute="centerX" secondItem="SkQ-QJ-Sw2" secondAttribute="centerX" id="OQw-TJ-byo"/>
+                            <constraint firstItem="5TQ-cG-YZB" firstAttribute="centerX" secondItem="SkQ-QJ-Sw2" secondAttribute="centerX" id="PPV-5V-3fH"/>
+                            <constraint firstItem="brK-em-v2z" firstAttribute="centerX" secondItem="0hp-8H-cmp" secondAttribute="centerX" id="WaL-6K-bQl"/>
+                            <constraint firstItem="brK-em-v2z" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="d5q-Tl-oco"/>
+                            <constraint firstAttribute="trailing" secondItem="brK-em-v2z" secondAttribute="trailing" id="dPb-Kv-SDE"/>
+                            <constraint firstItem="5TQ-cG-YZB" firstAttribute="top" secondItem="SkQ-QJ-Sw2" secondAttribute="bottom" constant="14" id="ehr-qd-DWW"/>
+                            <constraint firstItem="brK-em-v2z" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="hAB-gb-e3c"/>
+                            <constraint firstItem="0hp-8H-cmp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="86" id="jMW-dK-8F9"/>
+                            <constraint firstItem="SkQ-QJ-Sw2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="oGY-mt-kSF"/>
+                            <constraint firstItem="0hp-8H-cmp" firstAttribute="top" secondItem="brK-em-v2z" secondAttribute="bottom" constant="21" id="pCN-V6-OHZ"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="imageUploadProgressView" destination="SkQ-QJ-Sw2" id="IOw-cC-HES"/>
+                        <outlet property="myImageView" destination="brK-em-v2z" id="nVC-ZL-rCS"/>
+                        <outlet property="progressLabel" destination="5TQ-cG-YZB" id="FYW-RA-l3h"/>
+                        <outlet property="uploadButton" destination="0hp-8H-cmp" id="Efa-4H-44B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="344" y="336"/>
         </scene>
     </scenes>
 </document>
